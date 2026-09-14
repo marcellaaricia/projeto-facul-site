@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arícia Nails — Unhas que expressam sua personalidade</title>
+<meta name="description" content="Arícia Nails: nail art, esmaltação e cuidados com as unhas. Agende seu horário.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --wine-900:#3B131F;
+    --wine-700:#5C2436;
+    --blush-500:#E7A9BE;
+    --blush-300:#F3CFDB;
+    --sand-100:#FBF4EF;
+    --sand-200:#F3E7DE;
+    --champagne:#E8C7A0;
+    --ink:#2A1219;
+    --line: rgba(59,19,31,0.14);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--sand-100);
+    color:var(--ink);
+    font-family:'Manrope', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{
+    font-family:'Fraunces', serif;
+    color:var(--wine-900);
+    margin:0;
+    font-weight:500;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{
+    max-width:1120px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+  @media (max-width:640px){ .wrap{padding:0 20px;} }
+
+  /* skip link / focus */
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--wine-700);
+    outline-offset:3px;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
+  }
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(251,244,239,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 0;
+  }
+  .wordmark{
+    font-family:'Fraunces', serif;
+    font-size:1.35rem;
+    letter-spacing:0.01em;
+    color:var(--wine-900);
+  }
+  .wordmark em{ font-style:italic; color:var(--wine-700); }
+  nav ul{
+    list-style:none;
+    display:flex;
+    gap:32px;
+    margin:0;
+    padding:0;
+  }
+  nav ul a{
+    text-decoration:none;
+    font-size:0.95rem;
+    font-weight:500;
+    color:var(--wine-900);
+    padding-bottom:2px;
+    border-bottom:1px solid transparent;
+    transition:border-color 0.2s ease;
+  }
+  nav ul a:hover{ border-color:var(--blush-500); }
+  .nav-cta{
+    display:inline-block;
+    background:var(--wine-900);
+    color:var(--sand-100);
+    text-decoration:none;
+    font-size:0.9rem;
+    font-weight:600;
+    padding:10px 20px;
+    border-radius:999px;
+    transition:background 0.2s ease;
+  }
+  .nav-cta:hover{ background:var(--wine-700); }
+  .menu-toggle{ display:none; }
+
+  @media (max-width:780px){
+    nav ul{
+      position:fixed;
+      inset:64px 0 auto 0;
+      background:var(--sand-100);
+      flex-direction:column;
+      gap:0;
+      padding:8px 28px 20px;
+      border-bottom:1px solid var(--line);
+      transform:translateY(-130%);
+      transition:transform 0.25s ease;
+    }
+    nav ul.open{ transform:translateY(0); }
+    nav ul li{ padding:12px 0; border-bottom:1px solid var(--line); }
+    .nav-cta{ display:none; }
+    .menu-toggle{
+      display:block;
+      background:none;
+      border:1px solid var(--wine-900);
+      border-radius:8px;
+      width:38px;height:34px;
+      position:relative;
+      cursor:pointer;
+    }
+    .menu-toggle span, .menu-toggle span::before, .menu-toggle span::after{
+      content:"";
+      position:absolute;
+      left:9px; right:9px;
+      height:2px;
+      background:var(--wine-900);
+    }
+    .menu-toggle span{ top:16px; }
+    .menu-toggle span::before{ top:-6px; }
+    .menu-toggle span::after{ top:6px; }
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:76px 0 40px;
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:48px;
+    align-items:center;
+  }
+  @media (max-width:900px){
+    .hero-grid{ grid-template-columns:1fr; }
+    .hero-art{ order:-1; max-width:280px; margin:0 auto; }
+  }
+  .eyebrow-line{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:22px;
+    color:var(--wine-700);
+    font-size:0.9rem;
+    font-weight:600;
+  }
+  .eyebrow-line .dot{
+    width:7px;height:7px;border-radius:50%;
+    background:var(--blush-500);
+    display:inline-block;
+  }
+  .hero h1{
+    font-size:clamp(2.5rem, 5.2vw, 4.1rem);
+    line-height:1.04;
+    letter-spacing:-0.01em;
+  }
+  .hero h1 .accent{
+    font-style:italic;
+    color:var(--wine-700);
+  }
+  .hero p.lede{
+    margin:26px 0 34px;
+    max-width:46ch;
+    font-size:1.15rem;
+    color:var(--wine-700);
+  }
+  .hero-ctas{ display:flex; gap:16px; flex-wrap:wrap; }
+  .btn-primary{
+    background:var(--wine-900);
+    color:var(--sand-100);
+    text-decoration:none;
+    padding:15px 28px;
+    border-radius:999px;
+    font-weight:600;
+    font-size:0.98rem;
+    border:1px solid var(--wine-900);
+    transition:transform 0.15s ease, background 0.2s ease;
+    display:inline-block;
+  }
+  .btn-primary:hover{ background:var(--wine-700); transform:translateY(-1px); }
+  .btn-secondary{
+    color:var(--wine-900);
+    text-decoration:none;
+    padding:15px 22px;
+    border-radius:999px;
+    font-weight:600;
+    font-size:0.98rem;
+    border:1px solid var(--line);
+    transition:border-color 0.2s ease;
+    display:inline-block;
+  }
+  .btn-secondary:hover{ border-color:var(--wine-900); }
+
+  /* hero art: bottle illustration made of CSS/SVG */
+  .hero-art{ position:relative; }
+  .bottle{
+    width:220px;
+    margin:0 auto;
+    position:relative;
+  }
+  .bottle svg{ width:100%; height:auto; }
+  .swatch-float{
+    position:absolute;
+    border-radius:50%;
+    box-shadow:0 10px 24px rgba(59,19,31,0.18);
+  }
+  .swatch-float.s1{ width:54px;height:54px; background:var(--blush-500); top:8%; left:-6%; }
+  .swatch-float.s2{ width:36px;height:36px; background:var(--champagne); bottom:14%; right:-4%; }
+  .swatch-float.s3{ width:24px;height:24px; background:var(--wine-700); top:52%; left:-14%; }
+
+  /* ---------- SECTION HEADING PATTERN ---------- */
+  .section{ padding:88px 0; }
+  .section-head{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:16px;
+    max-width:640px;
+    margin-bottom:52px;
+  }
+  .section-head h2{
+    font-size:clamp(1.9rem, 3.4vw, 2.6rem);
+    line-height:1.12;
+  }
+  .section-head p{
+    color:var(--wine-700);
+    font-size:1.05rem;
+    max-width:52ch;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about{ background:var(--sand-200); }
+  .about-grid{
+    display:grid;
+    grid-template-columns:0.9fr 1.1fr;
+    gap:56px;
+    align-items:start;
+  }
+  @media (max-width:840px){ .about-grid{ grid-template-columns:1fr; } }
+  .about-figure{
+    aspect-ratio:4/5;
+    border-radius:4px;
+    background:
+      radial-gradient(circle at 30% 20%, var(--blush-300), transparent 55%),
+      radial-gradient(circle at 75% 70%, var(--champagne), transparent 50%),
+      linear-gradient(160deg, var(--wine-900), var(--wine-700));
+    position:relative;
+    overflow:hidden;
+  }
+  .about-figure::after{
+    content:"Arícia";
+    position:absolute;
+    bottom:24px; left:24px;
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    color:var(--sand-100);
+    font-size:1.6rem;
+  }
+  .about-copy p{ margin:0 0 18px; color:var(--ink); }
+  .about-copy p:first-child{ font-size:1.15rem; color:var(--wine-900); }
+  .stat-row{
+    display:flex;
+    gap:36px;
+    margin-top:32px;
+    padding-top:28px;
+    border-top:1px solid var(--line);
+    flex-wrap:wrap;
+  }
+  .stat-row div strong{
+    display:block;
+    font-family:'Fraunces', serif;
+    font-size:1.8rem;
+    color:var(--wine-900);
+  }
+  .stat-row div span{
+    font-size:0.88rem;
+    color:var(--wine-700);
+  }
+
+  /* ---------- SERVICES ---------- */
+  .service-list{
+    border-top:1px solid var(--line);
+  }
+  .service-row{
+    display:grid;
+    grid-template-columns:2.2fr 3fr 1fr;
+    gap:24px;
+    align-items:baseline;
+    padding:26px 0;
+    border-bottom:1px solid var(--line);
+  }
+  @media (max-width:720px){
+    .service-row{ grid-template-columns:1fr; gap:8px; padding:22px 0; }
+    .service-row .price{ order:3; }
+  }
+  .service-row h3{
+    font-size:1.35rem;
+    font-weight:500;
+  }
+  .service-row p{
+    margin:0;
+    color:var(--wine-700);
+    font-size:0.98rem;
+  }
+  .service-row .price{
+    text-align:right;
+    font-weight:600;
+    color:var(--wine-900);
+    font-size:1.02rem;
+  }
+  @media (max-width:720px){ .service-row .price{ text-align:left; } }
+
+  /* ---------- GALLERY ---------- */
+  .gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:14px;
+  }
+  @media (max-width:900px){ .gallery-grid{ grid-template-columns:repeat(2, 1fr); } }
+  .gallery-tile{
+    aspect-ratio:1/1;
+    border-radius:3px;
+    position:relative;
+    overflow:hidden;
+  }
+  .gallery-tile span{
+    position:absolute;
+    bottom:12px; left:12px;
+    font-size:0.78rem;
+    font-weight:600;
+    color:rgba(255,255,255,0.92);
+    letter-spacing:0.02em;
+  }
+  .g1{ background:linear-gradient(135deg,#E7A9BE,#5C2436); }
+  .g2{ background:linear-gradient(135deg,#E8C7A0,#3B131F); grid-row: span 2; aspect-ratio:auto; }
+  .g3{ background:linear-gradient(135deg,#F3CFDB,#C77D96); }
+  .g4{ background:linear-gradient(135deg,#5C2436,#E8C7A0); }
+  .g5{ background:linear-gradient(135deg,#3B131F,#E7A9BE); }
+  .g6{ background:linear-gradient(135deg,#C77D96,#F3E7DE); }
+  .g7{ background:linear-gradient(135deg,#E8C7A0,#C77D96); }
+  .gallery-note{
+    margin-top:18px;
+    font-size:0.9rem;
+    color:var(--wine-700);
+  }
+
+  /* ---------- BOOKING ---------- */
+  .booking{
+    background:var(--wine-900);
+    color:var(--sand-100);
+    border-radius:4px;
+  }
+  .booking-inner{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:48px;
+    padding:64px 48px;
+    align-items:center;
+  }
+  @media (max-width:900px){ .booking-inner{ grid-template-columns:1fr; padding:48px 28px; } }
+  .booking h2{ color:var(--sand-100); font-size:clamp(1.8rem,3.2vw,2.4rem); }
+  .booking p{ color:var(--blush-300); max-width:42ch; margin:18px 0 0; }
+  .booking-steps{ list-style:none; margin:0 0 30px; padding:0; }
+  .booking-steps li{
+    display:flex; gap:14px; align-items:flex-start;
+    padding:14px 0;
+    border-bottom:1px solid rgba(255,255,255,0.14);
+    font-size:0.98rem;
+  }
+  .booking-steps li:last-child{ border-bottom:none; }
+  .booking-steps .num{
+    font-family:'Fraunces', serif;
+    font-style:italic;
+    color:var(--blush-300);
+    font-size:1.1rem;
+    width:22px;
+  }
+  .btn-light{
+    display:inline-block;
+    background:var(--sand-100);
+    color:var(--wine-900);
+    text-decoration:none;
+    padding:15px 28px;
+    border-radius:999px;
+    font-weight:600;
+    transition:background 0.2s ease;
+  }
+  .btn-light:hover{ background:var(--blush-300); }
+
+  /* ---------- CONTACT / FOOTER ---------- */
+  footer{
+    background:var(--sand-200);
+    border-top:1px solid var(--line);
+    padding:64px 0 32px;
+  }
+  .footer-grid{
+    display:grid;
+    grid-template-columns:1.3fr 1fr 1fr;
+    gap:40px;
+    padding-bottom:40px;
+  }
+  @media (max-width:720px){ .footer-grid{ grid-template-columns:1fr; gap:32px; } }
+  .footer-grid h4{
+    font-family:'Manrope', sans-serif;
+    font-weight:700;
+    font-size:0.85rem;
+    text-transform:none;
+    color:var(--wine-900);
+    margin:0 0 16px;
+  }
+  .footer-grid ul{ list-style:none; margin:0; padding:0; }
+  .footer-grid li{ margin-bottom:10px; }
+  .footer-grid a{ text-decoration:none; color:var(--ink); font-size:0.95rem; }
+  .footer-grid a:hover{ color:var(--wine-700); }
+  .footer-bottom{
+    border-top:1px solid var(--line);
+    padding-top:24px;
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:12px;
+    font-size:0.85rem;
+    color:var(--wine-700);
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <div class="wordmark">Arícia <em>Nails</em></div>
+    <button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false" id="menuToggle"><span></span></button>
+    <ul id="navList">
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#galeria">Galeria</a></li>
+      <li><a href="#agendamento">Agendamento</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+    <a class="nav-cta" href="#agendamento">Agende seu horário</a>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero wrap hero-grid" id="topo">
+    <div>
+      <div class="eyebrow-line"><span class="dot"></span> Estúdio de nail art e estética de unhas</div>
+      <h1>Unhas que expressam <span class="accent">sua personalidade.</span></h1>
+      <p class="lede">Nail art, cuidados e beleza em um só lugar — para quem trata as unhas como parte da própria expressão.</p>
+      <div class="hero-ctas">
+        <a class="btn-primary" href="#agendamento">Agende seu horário</a>
+        <a class="btn-secondary" href="#galeria">Ver portfólio</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="bottle">
+        <span class="swatch-float s1"></span>
+        <span class="swatch-float s2"></span>
+        <span class="swatch-float s3"></span>
+        <svg viewBox="0 0 200 320" xmlns="http://www.w3.org/2000/svg">
+          <rect x="78" y="18" width="44" height="34" rx="6" fill="#5C2436"/>
+          <rect x="86" y="4" width="28" height="20" rx="4" fill="#3B131F"/>
+          <path d="M40 60 C40 48 60 48 100 48 C140 48 160 48 160 60 L172 300 C172 312 162 320 150 320 L50 320 C38 320 28 312 28 300 Z" fill="#E7A9BE"/>
+          <path d="M40 60 C40 48 60 48 100 48 C140 48 160 48 160 60 L166 180 L34 180 Z" fill="#F3E0E7" opacity="0.55"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="sobre">
+    <div class="wrap section about-grid" style="padding:0;">
+      <div class="about-figure" role="img" aria-label="Ilustração representando o estúdio Arícia Nails"></div>
+      <div class="about-copy">
+        <div class="section-head" style="margin-bottom:24px;">
+          <h2>Sobre a Arícia</h2>
+        </div>
+        <p>A Arícia Nails nasceu da paixão por nail art e pela criação de experiências personalizadas para cada cliente.</p>
+        <p>Unimos criatividade, cuidado e qualidade em cada atendimento, do alongamento à esmaltação, sempre com atenção aos detalhes que fazem a diferença nas suas mãos.</p>
+        <p>Mais do que um serviço estético, cada visita é pensada como um momento de cuidado — para você sair satisfeita e com as unhas com a sua cara.</p>
+        <div class="stat-row">
+          <div><strong>+5</strong><span>anos de experiência</span></div>
+          <div><strong>+300</strong><span>clientes atendidas</span></div>
+          <div><strong>6</strong><span>serviços especializados</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section wrap" id="servicos">
+    <div class="section-head">
+      <h2>Serviços</h2>
+      <p>Do cuidado básico à nail art autoral — escolha o que combina com o seu momento.</p>
+    </div>
+    <div class="service-list">
+      <div class="service-row">
+        <h3>Alongamento de unhas</h3>
+        <p>Fibra ou gel, com formato e comprimento ajustados ao seu dia a dia.</p>
+        <span class="price">a partir de R$ 90</span>
+      </div>
+      <div class="service-row">
+        <h3>Esmaltação</h3>
+        <p>Esmaltação tradicional ou em gel, com acabamento duradouro.</p>
+        <span class="price">a partir de R$ 35</span>
+      </div>
+      <div class="service-row">
+        <h3>Nail art personalizada</h3>
+        <p>Desenhos, texturas e adornos criados sob medida para você.</p>
+        <span class="price">a partir de R$ 20 por unha</span>
+      </div>
+      <div class="service-row">
+        <h3>Manutenção</h3>
+        <p>Retoque de alongamento e esmaltação para manter o resultado.</p>
+        <span class="price">a partir de R$ 60</span>
+      </div>
+      <div class="service-row">
+        <h3>Remoção</h3>
+        <p>Remoção segura de alongamento ou esmaltação em gel.</p>
+        <span class="price">a partir de R$ 25</span>
+      </div>
+      <div class="service-row">
+        <h3>Cuidados com as unhas</h3>
+        <p>Cutilagem, hidratação e fortalecimento para unhas saudáveis.</p>
+        <span class="price">a partir de R$ 40</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="section wrap" id="galeria" style="padding-top:0;">
+    <div class="section-head">
+      <h2>Galeria</h2>
+      <p>Um recorte dos trabalhos mais recentes do estúdio.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-tile g1"><span>Nude clássico</span></div>
+      <div class="gallery-tile g2"><span>Nail art floral</span></div>
+      <div class="gallery-tile g3"><span>French moderno</span></div>
+      <div class="gallery-tile g4"><span>Degradê vinho</span></div>
+      <div class="gallery-tile g5"><span>Glitter noite</span></div>
+      <div class="gallery-tile g6"><span>Minimalista</span></div>
+      <div class="gallery-tile g7"><span>Texturizado</span></div>
+    </div>
+    <p class="gallery-note">* Substitua os blocos acima por fotos reais dos trabalhos ao publicar o site.</p>
+  </section>
+
+  <!-- BOOKING -->
+  <section class="wrap" id="agendamento" style="padding:0 28px 88px;">
+    <div class="booking">
+      <div class="booking-inner">
+        <div>
+          <h2>Agendamento</h2>
+          <p>Escolha o serviço, consulte a disponibilidade e agende seu horário de forma rápida e prática.</p>
+        </div>
+        <div>
+          <ul class="booking-steps">
+            <li><span class="num">1</span> Escolha o serviço desejado</li>
+            <li><span class="num">2</span> Consulte os horários disponíveis</li>
+            <li><span class="num">3</span> Confirme pelo WhatsApp</li>
+          </ul>
+          <a class="btn-light" href="#contato">Agendar atendimento</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="wordmark" style="margin-bottom:14px;">Arícia <em>Nails</em></div>
+        <p style="max-width:32ch; color:var(--wine-700); font-size:0.95rem;">Nail art, cuidados e beleza em um só lugar.</p>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="https://wa.me/5500000000000" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="https://instagram.com/aricianails" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="mailto:contato@aricianails.com">contato@aricianails.com</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Localização</h4>
+        <ul>
+          <li><a href="#">Rua das Flores, 123 — Sua Cidade</a></li>
+          <li><a href="#">Seg a Sáb, 9h às 19h</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Arícia Nails. Todos os direitos reservados.</span>
+      <span>Atividade prática — Negócios digitais</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('menuToggle');
+  const navList = document.getElementById('navList');
+  toggle.addEventListener('click', () => {
+    const isOpen = navList.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen);
+  });
+  navList.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navList.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }));
+</script>
+
+</body>
+</html>
